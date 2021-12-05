@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Flex Project</title>
+</head>
+<body>
+    <main>
+        <div class="congratulations-block " id="congratulations-block">
+            <div class="congratulations-block__text" id="congratulations-block__text"></div>   
+        </div>
+        
+        <div class="main-container" >
+            <div class="main-container__input">
+                <div class="main-container__input-title">Inp Your Code</div>
+                <input type="text" class="main-container__input-text " value="" >
+                <input type="button" value="Done" class="main-container__input-button"  onclick="clickButton()" disabled = 'disabled'>
+            </div>        
+            <div class="container__flex-space ">
+                <div class="flex-space__box-dinamic">
+                    <div class="flex-space__item-dinamic"></div>
+                </div>
+                <div class="flex-space__box-static">  
+                    <div class="flex-space__item-static"></div>
+                </div>  
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
