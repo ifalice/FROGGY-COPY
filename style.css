@@ -75,6 +75,7 @@ body {
   color: seagreen;
   cursor: pointer;
   margin-top: 5%;
+  text-align: center;
 }
 
 .main-container .container__flex-space {
@@ -103,12 +104,6 @@ body {
 
 .main-container .container__flex-space .flex-space__box-static {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   position: absolute;
 }
 
@@ -117,5 +112,23 @@ body {
   height: 50px;
   width: 50px;
   background-color: aqua;
+}
+
+.box-static_flex-lvl-two-jc-flex-end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.box-static_flex-lvl-one-jc-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=style.css.map */
