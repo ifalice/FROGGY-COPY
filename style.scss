@@ -1,5 +1,6 @@
 body{
     background-color: brown;
+    
 }
 
 $valueContent:center;
@@ -25,7 +26,7 @@ $valueContent:center;
     .main-container__input{
         background-color: seagreen;
         width: 33%;
-        height: 50vh;
+        height: 98vh;
         display: flex;
         flex-direction: column; 
         align-items: center;
@@ -61,8 +62,10 @@ $valueContent:center;
     .container__flex-space{
         position: relative;
         background-color: grey;
-        width: 66%;
-        display: flex;  
+        width: 67%;
+        display: flex; 
+        height: 98vh; 
+        
         .flex-space__box-dinamic{
             width: 100%;
             display: flex; 
@@ -81,21 +84,36 @@ $valueContent:center;
             position: absolute;
             .flex-space__item-static{
                 z-index: 0;   
-                height: 50px;
-                width: 50px;
-                background-color: aqua;      
+                height: 48px;
+                width: 48px;
+                background-color: aqua;     
+                border: 1px black solid; 
             }
         }
         
     }
 }    
     
+
+
+.box-static_flex-lvl-one-jc-center{
+    display: flex;
+    justify-content: center;            
+}
+
 .box-static_flex-lvl-two-jc-flex-end{
     display: flex;
     justify-content: flex-end;
 }  
 
-.box-static_flex-lvl-one-jc-center{
+.box-static_flex-lvl-three-jc-space-between{
     display: flex;
-    justify-content: center;            
+    justify-content: space-between;
+
+}
+
+.box-static_flex-lvl-four-jc-space-around{
+    display: flex;
+    justify-content: space-around;
+
 }
