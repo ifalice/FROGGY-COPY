@@ -106,6 +106,7 @@ body {
 .main-container .container__flex-space .flex-space__box-static {
   width: 100%;
   position: absolute;
+  height: 98vh;
 }
 
 .main-container .container__flex-space .flex-space__box-static .flex-space__item-static {
@@ -149,5 +150,26 @@ body {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.box-static_flex-lvl-five-ai-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box-static_flex-lvl-six-ai-flex-end-jc-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=style.css.map */

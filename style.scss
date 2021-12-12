@@ -82,6 +82,7 @@ $valueContent:center;
         .flex-space__box-static{
             width: 100%;           
             position: absolute;
+            height: 98vh;
             .flex-space__item-static{
                 z-index: 0;   
                 height: 48px;
@@ -116,4 +117,15 @@ $valueContent:center;
     display: flex;
     justify-content: space-around;
 
+}
+
+.box-static_flex-lvl-five-ai-center{
+    display: flex;
+    align-items: center;
+}
+
+.box-static_flex-lvl-six-ai-flex-end-jc-center{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }

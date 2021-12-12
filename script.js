@@ -31,12 +31,14 @@ function lvlTwo(){
 }
 
 
-const lvlList = ['box-static_flex-lvl-one-jc-center','box-static_flex-lvl-two-jc-flex-end','box-static_flex-lvl-three-jc-space-between','box-static_flex-lvl-four-jc-space-around']
-const flexPositionDinamicBlock = ['justify-content:center;','justify-content:flex-end;','justify-content:space-between;','justify-content:space-around;']
+const lvlList = ['box-static_flex-lvl-one-jc-center','box-static_flex-lvl-two-jc-flex-end','box-static_flex-lvl-three-jc-space-between','box-static_flex-lvl-four-jc-space-around','box-static_flex-lvl-five-ai-center','box-static_flex-lvl-six-ai-flex-end-jc-center']
+
+
+const flexPositionDinamicBlock = ['justify-content:center;','justify-content:flex-end;','justify-content:space-between;','justify-content:space-around;', 'align-items:center;','align-items:flex-end;justify-content:center;']
 
 
 let countDoneButtonNextLvl = 1;
-function doneButtonNextLvl(){ 
+function doneButtonNextLvl(event){ 
     const count_2 = ++countDoneButtonNextLvl;
     console.log(count_2);
     getClassName = document.querySelector('.flex-space__box-static');
@@ -47,6 +49,8 @@ function doneButtonNextLvl(){
     if(count_2 === 3){
         creatNewBlocks(2);    
     }
+    document.querySelector('.main-container__input-button').setAttribute('disabled','disabled');
+
 }
 
 
@@ -61,6 +65,20 @@ function creatNewBlocks(numberOfElemenst){
         document.querySelector('.flex-space__box-dinamic').prepend(newDinamicBlock);     
     }  
          
+}
+
+
+
+function deleteBlocks(numberOfElements, classNameElements){
+    const boxStatic = document.querySelectorAll(classNameElements); 
+    for(item of boxStatic){
+        if(numberOfElements !=0){
+            numberOfElements--
+            item.remove();
+        }else if(numberOfElements ===0){
+            break;
+        }        
+    }
 }
 
 
