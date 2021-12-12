@@ -1,34 +1,43 @@
 const valueTextInput = document.querySelector('.main-container__input-text')
 
 valueTextInput.oninput = function (){
-    console.log(document.querySelector('.main-container__input-text').value);
-  
-    document.querySelector('.flex-space__box-dinamic').style.cssText = `${document.querySelector(".main-container__input-text").value}`
+        console.log(document.querySelector('.main-container__input-text').value);
+        document.querySelector('.flex-space__box-dinamic').style.cssText = `${document.querySelector(".main-container__input-text").value}`;     
+       
+        
+        checkValueInputText(document.querySelector('.main-container__input-text').value);
+        // if(document.querySelector('.main-container__input-text').value == 'center'){
+            
+        //         document.querySelector('.main-container__input-button').removeAttribute('disabled');
+            
+
+        // }else{document.querySelector('.main-container__input-button').setAttribute('disabled', 'disabled')}
+        
+        
+        
+    }    
     
-    const inputText = document.querySelector('.main-container__input-text');
-    if(inputText.value.slice(-1) !=';'){
-        if(inputText.value.split(' ').join('')+';'=== flexPositionDinamicBlock[0]){
-            document.querySelector('.main-container__input-button').removeAttribute('disabled');   
-            flexPositionDinamicBlock.shift();   
-        }else if(inputText.value.slice(-1) ==';'){
-            if(inputText.value.split(' ').join('')===flexPositionDinamicBlock[0]){
+    
+    function checkValueInputText(inputText){
+        console.log(document.querySelector('.main-container__input-text').value);
+        if(inputText.slice(-1) !=';'){
+            if(inputText.split(' ').join('')+';'=== flexPositionDinamicBlock[0]){
                 document.querySelector('.main-container__input-button').removeAttribute('disabled');   
+                  
+            }else if(inputText.slice(-1) ==';'){
+                if(inputText.split(' ').join('')===flexPositionDinamicBlock[0]){
+                    document.querySelector('.main-container__input-button').removeAttribute('disabled');   
+                }
             }
-        }
-        else{
-            document.querySelector('.main-container__input-button').setAttribute('disabled', 'disabled')
-        }
-    }
-    
-}
+            else{
+                document.querySelector('.main-container__input-button').setAttribute('disabled', 'disabled')
+            }
+    }}
 
 
-function lvlTwo(){
-    getClassName = document.querySelector('.flex-space__box-static')
-    replaceObjectsClass(getClassName,'box-static_flex-lvl-one-jc-center','box-static_flex-lvl-two-jc-flex-end')
-    document.querySelector('.main-container__input-text').value = '';
-    document.querySelector('.flex-space__box-dinamic').style.cssText = `justify-content:flex-start;`;
-}
+
+
+
 
 
 const lvlList = ['box-static_flex-lvl-one-jc-center','box-static_flex-lvl-two-jc-flex-end','box-static_flex-lvl-three-jc-space-between','box-static_flex-lvl-four-jc-space-around','box-static_flex-lvl-five-ai-center','box-static_flex-lvl-six-ai-flex-end-jc-center']
@@ -39,6 +48,7 @@ const flexPositionDinamicBlock = ['justify-content:center;','justify-content:fle
 
 let countDoneButtonNextLvl = 1;
 function doneButtonNextLvl(event){ 
+    flexPositionDinamicBlock.shift()
     const count_2 = ++countDoneButtonNextLvl;
     console.log(count_2);
     getClassName = document.querySelector('.flex-space__box-static');
