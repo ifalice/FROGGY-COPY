@@ -15,13 +15,12 @@ valueTextInput.oninput = function (){
 
 
     function checkValueInputText(inputText){
-        console.log(document.querySelector('.main-container__input-text').value);
-        flexPositionDinamicBlock.forEach(function(item){
-            if(inputText.includes(item)){            
+        console.log(document.querySelector('.main-container__input-text').value);   
+            if(inputText.includes(flexPositionDinamicBlock[0])){            
                 document.querySelector('.main-container__input-button').removeAttribute('disabled');
             }else if(inputText.slice(-1)!=';'){
-                inputText+";"
-                if(inputText.includes(item)){
+                inputText+=";"
+                if(inputText.includes(flexPositionDinamicBlock[0])){
                     
                     document.querySelector('.main-container__input-button').removeAttribute('disabled');  
                 }
@@ -29,8 +28,8 @@ valueTextInput.oninput = function (){
             else{
                 document.querySelector('.main-container__input-button').setAttribute('disabled','disabled');
             }
-        })                    
-    }
+        }                    
+    
 
     function checkPluralValueInputText(inputText){
         let count = ''
@@ -38,19 +37,28 @@ valueTextInput.oninput = function (){
         // console.log(item);
     
         if(inputText.includes(item)){  
+            console.log('1');
             count+='1'
             if(count.length === flexPositionDinamicBlock[0].length){
                 document.querySelector('.main-container__input-button').removeAttribute('disabled');    
+            }else{
+                console.log('1.1');
+                document.querySelector('.main-container__input-button').setAttribute('disabled','disabled');
             }                     
-        }else if(inputText.slice(-1)!=';'){        
+        }else if(inputText.slice(-1)!=';'){  
+            console.log('2');      
             if(inputText.includes(item.slice(0,-1))){
                 count+='1'            
                 if(count.length === flexPositionDinamicBlock[0].length){
                     document.querySelector('.main-container__input-button').removeAttribute('disabled');    
+                }else{
+                    console.log('2.2');
+                    document.querySelector('.main-container__input-button').setAttribute('disabled','disabled');
                 }  
             }
         }
         else{
+            console.log('3');
             document.querySelector('.main-container__input-button').setAttribute('disabled','disabled');
         }
 
@@ -64,7 +72,6 @@ valueTextInput.oninput = function (){
 
 
 const lvlList = ['box-static_flex-lvl-one-jc-center','box-static_flex-lvl-two-jc-flex-end','box-static_flex-lvl-three-jc-space-between','box-static_flex-lvl-four-jc-space-around','box-static_flex-lvl-five-ai-center','box-static_flex-lvl-six-ai-flex-end-jc-center']
-
 
 const flexPositionDinamicBlock = ['justify-content:center;','justify-content:flex-end;','justify-content:space-between;','justify-content:space-around;', 'align-items:center;',['align-items:flex-end;','justify-content:center;']]
 
