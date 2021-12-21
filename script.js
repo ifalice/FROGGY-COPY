@@ -11,18 +11,18 @@ valueTextInput.oninput = function (){
         }
     }    
     
-
-
-
+    
     function checkValueInputText(inputText){
+        let removeButtonAttribute = document.querySelector('.main-container__input-button').removeAttribute('disabled');
         console.log(document.querySelector('.main-container__input-text').value);   
-            if(inputText.includes(flexPositionDinamicBlock[0])){            
-                document.querySelector('.main-container__input-button').removeAttribute('disabled');
+            if(inputText.includes(flexPositionDinamicBlock[0])){      
+                removeButtonAttribute;      
+                
             }else if(inputText.slice(-1)!=';'){
                 inputText+=";"
                 if(inputText.includes(flexPositionDinamicBlock[0])){
                     
-                    document.querySelector('.main-container__input-button').removeAttribute('disabled');  
+                    removeButtonAttribute;  
                 }
             }
             else{
@@ -32,34 +32,29 @@ valueTextInput.oninput = function (){
     
 
     function checkPluralValueInputText(inputText){
+        let removeButtonAttribute = document.querySelector('.main-container__input-button').removeAttribute('disabled');
+        let setButtonAttribute = document.querySelector('.main-container__input-button').setAttribute('disabled','disabled');
         let count = ''
-        flexPositionDinamicBlock[0].forEach(function(item,index) {
-        // console.log(item);
-    
-        if(inputText.includes(item)){  
-            console.log('1');
+        flexPositionDinamicBlock[0].forEach(function(item) {     
+        if(inputText.includes(item)){   
             count+='1'
             if(count.length === flexPositionDinamicBlock[0].length){
-                document.querySelector('.main-container__input-button').removeAttribute('disabled');    
-            }else{
-                console.log('1.1');
-                document.querySelector('.main-container__input-button').setAttribute('disabled','disabled');
+                removeButtonAttribute;                 
+            }else{         
+                removeButtonAttribute;
             }                     
-        }else if(inputText.slice(-1)!=';'){  
-            console.log('2');      
-            if(inputText.includes(item.slice(0,-1))){
+        }else if(inputText.slice(-1)!=';'){       
+            inputText+=';';  
+            if(inputText.includes(item)){
                 count+='1'            
                 if(count.length === flexPositionDinamicBlock[0].length){
                     document.querySelector('.main-container__input-button').removeAttribute('disabled');    
                 }else{
-                    console.log('2.2');
-                    document.querySelector('.main-container__input-button').setAttribute('disabled','disabled');
+                    setButtonAttribute;                        
                 }  
             }
-        }
-        else{
-            console.log('3');
-            document.querySelector('.main-container__input-button').setAttribute('disabled','disabled');
+        }else{
+            setButtonAttribute;    
         }
 
     });
@@ -77,7 +72,7 @@ const flexPositionDinamicBlock = ['justify-content:center;','justify-content:fle
 
 
 let countDoneButtonNextLvl = 1;
-function doneButtonNextLvl(event){ 
+function doneButtonNextLvl(){ 
     flexPositionDinamicBlock.shift()
     const count_2 = ++countDoneButtonNextLvl;
     console.log(count_2);
