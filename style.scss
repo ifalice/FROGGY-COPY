@@ -3,7 +3,6 @@ body{
     
 }
 
-$valueContent:center;
 .congratulations-block__style{
     margin: 0 auto;
     width: 60%;
@@ -11,6 +10,7 @@ $valueContent:center;
     background-color: firebrick;
     display: flex;
     justify-content: center;
+    
     align-items: center;
     .congratulations-block__text{
         font-size: 50px;
@@ -30,7 +30,7 @@ $valueContent:center;
         display: flex;
         flex-direction: column; 
         align-items: center;
-        justify-content: center;
+        
         .main-container__input-title{
             color: white;
             font-size: 40px;
@@ -38,13 +38,15 @@ $valueContent:center;
             width:66% ;
             text-align: center;
         }
-        .main-container__input-text{
-            height: 30px;
+        .main-container__input-textarea{
+            
             border-radius: 5px;
             background-color: aquamarine;
             border: 2px white solid;
             width: 66%;
             color: seagreen;
+            resize: none;
+            overflow: hidden;
         }
         .main-container__input-button{
             height: 30px;
@@ -57,7 +59,23 @@ $valueContent:center;
             margin-top: 5%;
             text-align: center;
             
-        }       
+            border-radius: 5px;
+            transition: border-radius 0.4s ease-out 0.1s;
+            
+            
+        }  
+        // .main-container__input-button:hover{
+        //     border-radius: 20px;
+        // }
+        input:disabled {
+            border-radius: 20px;
+            
+            cursor: default;
+            background-color: white;
+            color: rgb(172, 173, 173);
+            
+        }
+
     }
     .container__flex-space{
         position: relative;
@@ -97,9 +115,73 @@ $valueContent:center;
     
 
 
+.jc-c{
+    display: flex;
+    justify-content: center;
+}
+
+.jc-fs{
+    display: flex;
+    justify-content: flex-start;
+}
+.jc-fe{
+    display: flex;
+    justify-content: flex-end;
+}
+.ai-c{
+    display: flex;
+    align-items: center;
+}
+.ai-fe{
+    display: flex;
+    align-items: flex-end;
+}
+.ai-fs{
+    display: flex;
+    align-items: flex-start;
+}
+.fd-c{
+    display: flex;
+    flex-direction: column;
+}
+.fd-cr{
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+.fd-r{
+    display: flex;
+    flex-direction: row;
+    
+}
+.fd-rr{
+    display: flex;
+    flex-direction: row-reverse; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// STATICK ITEMS POSITION
 .box-static_flex-lvl-one-jc-center{
     display: flex;
-    justify-content: center;            
+    justify-content: center;
+                
 }
 
 .box-static_flex-lvl-two-jc-flex-end{
@@ -128,15 +210,29 @@ $valueContent:center;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    
 }
 
 .box-static_flex-lvl-seven-ai-center-jc-center{
     display: flex;
     align-items: center;
-    justify-content: center;
+    
 }
 
 .box-static_flex-lvl-eight-fd-column-jc-flex-end{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.box-static_flex-lvl-nine-fd-column-jc-flex-end-ai-flex-end{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.box-static_flex-lvl-ten-fd-column-jc-flex-end{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

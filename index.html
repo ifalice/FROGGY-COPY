@@ -9,22 +9,23 @@
 </head>
 <body>
     <main>
-        <div class="congratulations-block " id="congratulations-block">
-            <div class="congratulations-block__text" id="congratulations-block__text"></div>   
+        <div class="congratulations-block__style " id="congratulations-block" style="display: none;">
+            <div class="congratulations-block__text" id="congratulations-block__text">Congratulations</div>   
         </div>
         
         <div class="main-container" >
             <div class="main-container__input">
                 <div class="main-container__input-title">Inp Your Code</div>
                     
-                        <input type="text" class="main-container__input-text " value="" >
-                        <input type="button" value="Done" class="main-container__input-button"  onclick="doneButtonNextLvl()" disabled = 'disabled'>
+                        
+                        <textarea name="" id="" cols="#" rows="5" class="main-container__input-textarea"></textarea>
+                        <input type="button" value="Done" class="main-container__input-button" onkeypress="buttonEvent(event)" onclick="doneButtonNextLvl()" disabled = 'disabled'>
                         <input type="button" value="test" onclick="creatNewBlocks(5)">
                         <input type="button" value="test_lvl" onclick="doneButtonNextLvl()">
                     
             </div>        
             <div class="container__flex-space ">
-                <div class="flex-space__box-dinamic box-dinamic_display-flex`">
+                <div class="flex-space__box-dinamic ">
                     <div class="flex-space__item-dinamic"></div>
                 </div>
                 <div class="flex-space__box-static box-static_flex-lvl-one-jc-center">  
