@@ -6,7 +6,12 @@ const getDinamicSpaceBox = document.querySelector('.flex-space__box-dinamic');
 
 
 valueTextInput.oninput = function (){       
-        getDinamicSpaceBox.style.cssText = `${valueTextInput.value}`;     
+        if(countDoneButtonNextLvl == 10){
+            getDinamicSpaceBox.firstChild.nextSibling.style.cssText = `${valueTextInput.value}`;    
+        }else{
+            getDinamicSpaceBox.style.cssText = `${valueTextInput.value}`;  
+        }
+           
         let getValueInputText = valueTextInput.value;       
         if(typeof(flexCheckPositionDinamicBlock[0])==='object'){
             checkPluralValueInputText(getValueInputText);
@@ -81,7 +86,8 @@ const lvlList = [
   "box-static_flex-lvl-seven-ai-center-jc-center",
   "box-static_flex-lvl-eight-fd-column-jc-flex-end",
   "box-static_flex-lvl-nine-fd-column-jc-flex-end-ai-flex-end",
-  "box-static_flex-lvl-one-jc-center",
+  ["box-static_flex-lvl-eleven-js-center-ai-center","box-static_flex-lvl-eleven-as-center"],
+ 
 ];
 
 const flexCheckPositionDinamicBlock = [
@@ -94,8 +100,7 @@ const flexCheckPositionDinamicBlock = [
   ["align-items:center;","justify-content:center;"],
   ["flex-direction:column;","justify-content:flex-end;"],
   ["flex-direction:column;","justify-content:flex-end;","align-items:flex-end;"],
-  "justify-content:center;",
-  [],
+  "align-self:center",
 ];
 
 // const flexPositionDinamicBlock = [
@@ -140,15 +145,19 @@ const flexPositionDinamicBlock = [
 
 let countDoneButtonNextLvl = 1;
 function doneButtonNextLvl(){   
-    
     flexCheckPositionDinamicBlock.shift()
     const numberLvl = ++countDoneButtonNextLvl;
     console.log(numberLvl);
     getStaticSpaceBox.classList.remove(lvlList[0]);
     lvlList.shift()
-    getStaticSpaceBox.classList.add(lvlList[0]);
-     
-    
+    console.log(lvlList[0]);
+    if(typeof(lvlList[0])==='object'){          
+        getStaticSpaceBox.classList.add(lvlList[0][0]);
+        getStaticSpaceBox.firstChild.nextSibling.classList.add(lvlList[0][1]);  
+        console.log(getStaticSpaceBox.firstChild);   
+    }else{
+        getStaticSpaceBox.classList.add(lvlList[0]);
+    }
     valueTextInput.value = '';
     console.log(flexPositionDinamicBlock);
     flexPositionDinamicBlock.shift();

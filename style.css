@@ -325,4 +325,19 @@ body {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
+
+.box-static_flex-lvl-eleven-js-center-ai-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.box-static_flex-lvl-eleven-js-center-ai-center .box-static_flex-lvl-eleven-as-center {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
 /*# sourceMappingURL=style.css.map */

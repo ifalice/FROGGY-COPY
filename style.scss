@@ -238,6 +238,16 @@ body{
     justify-content: flex-end;
 }
 
+.box-static_flex-lvl-eleven-js-center-ai-center{
+    display: flex; 
+    justify-content: center;
+    
+    .box-static_flex-lvl-eleven-as-center{
+        align-self: center;
+    }
+}
+
+
 
 
 
