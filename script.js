@@ -5,8 +5,10 @@ const getDinamicSpaceBox = document.querySelector('.flex-space__box-dinamic');
 
 
 
+
+
 valueTextInput.oninput = function (){       
-        if(countDoneButtonNextLvl == 10){
+        if(typeof(lvlList[0]) === 'object'){
             getDinamicSpaceBox.firstChild.nextSibling.style.cssText = `${valueTextInput.value}`;    
         }else{
             getDinamicSpaceBox.style.cssText = `${valueTextInput.value}`;  
@@ -40,13 +42,11 @@ valueTextInput.oninput = function (){
         }                    
     
 
-    function checkPluralValueInputText(inputText){
-        let getInputDoneButton = document.querySelector('.main-container__input-button');
-        
-        let count = ''
+    function checkPluralValueInputText(inputText){           
+        let count = [];
         flexCheckPositionDinamicBlock[0].forEach(function(item) {     
         if(inputText.includes(item)){         
-            count+='1'  
+            count.push(true); 
             if(count.length === flexCheckPositionDinamicBlock[0].length){
                 getInputDoneButton.removeAttribute('disabled');                          
             }else{    
@@ -56,7 +56,8 @@ valueTextInput.oninput = function (){
             console.log(2);
             inputText+=';';  
             if(inputText.includes(item)){
-                count+='1'            
+                count.push(true); 
+                console.log(count);            
                 if(count.length === flexCheckPositionDinamicBlock[0].length){
                     getInputDoneButton.removeAttribute('disabled');    
                 }else{
@@ -150,7 +151,8 @@ function doneButtonNextLvl(){
     console.log(numberLvl);
     getStaticSpaceBox.classList.remove(lvlList[0]);
     lvlList.shift()
-    console.log(lvlList[0]);
+    
+
     if(typeof(lvlList[0])==='object'){          
         getStaticSpaceBox.classList.add(lvlList[0][0]);
         getStaticSpaceBox.firstChild.nextSibling.classList.add(lvlList[0][1]);  
@@ -158,6 +160,7 @@ function doneButtonNextLvl(){
     }else{
         getStaticSpaceBox.classList.add(lvlList[0]);
     }
+
     valueTextInput.value = '';
     console.log(flexPositionDinamicBlock);
     flexPositionDinamicBlock.shift();
