@@ -34,7 +34,7 @@ body {
 .main-container .main-container__input {
   border-radius: 5px 0px 0px 5px;
   background-color: #444c5c;
-  width: 33%;
+  width: 45%;
   height: 98vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -46,13 +46,27 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.main-container .main-container__input .main-container__text-lvl {
+  width: 90%;
+  text-align: center;
+  color: #444c5c;
+  border-radius: 20px;
+  background-color: #78a5a3;
+  padding: 5px;
+  -webkit-box-shadow: 3px 3px #ce5a57;
+          box-shadow: 3px 3px #ce5a57;
 }
 
 .main-container .main-container__input .main-container__input-title {
   color: white;
   font-size: 40px;
   padding-bottom: 30px;
-  width: 66%;
+  width: 55%;
   text-align: center;
 }
 
@@ -65,6 +79,7 @@ body {
   color: white;
   resize: none;
   overflow: hidden;
+  outline: none;
 }
 
 .main-container .main-container__input .main-container__input-button {
@@ -235,22 +250,22 @@ body {
           flex-direction: row-reverse;
 }
 
-.box-static_flex-lvl-one-jc-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.box-static_flex-lvl-two-jc-flex-end {
+.box-static_flex-lvl-one-jc-flex-end {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.box-static_flex-lvl-two-jc-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .box-static_flex-lvl-three-jc-space-between {
@@ -298,6 +313,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .box-static_flex-lvl-eight-fd-column-jc-flex-end {

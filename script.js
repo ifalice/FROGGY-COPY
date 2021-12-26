@@ -5,14 +5,13 @@ const getDinamicSpaceBox = document.querySelector('.flex-space__box-dinamic');
 
 
 
-
-
 valueTextInput.oninput = function (){       
         if(typeof(lvlList[0]) === 'object'){
             getDinamicSpaceBox.firstChild.nextSibling.style.cssText = `${valueTextInput.value}`;    
         }else{
             getDinamicSpaceBox.style.cssText = `${valueTextInput.value}`;  
         }
+       
            
         let getValueInputText = valueTextInput.value;       
         if(typeof(flexCheckPositionDinamicBlock[0])==='object'){
@@ -74,12 +73,15 @@ valueTextInput.oninput = function (){
 
 
 
-
+const lvl = [
+    "CSS свойство  justify-content определяет, как браузер распределяет пространство между и вокруг элементов контента вдоль главной оси flex контейнера, или вдоль строчной оси grid контейнера.",
+    "justify-content:center - Выравнивание элементов по центру",
+]
 
 
 const lvlList = [
-  "box-static_flex-lvl-one-jc-center",
-  "box-static_flex-lvl-two-jc-flex-end",
+  "box-static_flex-lvl-one-jc-flex-end",
+  "box-static_flex-lvl-two-jc-center",
   "box-static_flex-lvl-three-jc-space-between",
   "box-static_flex-lvl-four-jc-space-around",
   "box-static_flex-lvl-five-ai-center",
@@ -92,8 +94,8 @@ const lvlList = [
 ];
 
 const flexCheckPositionDinamicBlock = [
-  "justify-content:center;",
   "justify-content:flex-end;",
+  "justify-content:center;",
   "justify-content:space-between;",
   "justify-content:space-around;",
   "align-items:center;",
@@ -113,15 +115,15 @@ const flexCheckPositionDinamicBlock = [
 // ]
 
 const flexPositionDinamicBlock = [
-    "jc-c",
-    "jc-c",
-    "jc-c",
-    "jc-c",
-    "jc-c",
-    "jc-c",
-    "jc-c",
-    "jc-c",
-    "jc-c",
+    "jc-fs",
+    "jc-fs",
+    "jc-fs",
+    "jc-fs",
+    "jc-fs",
+    "jc-fs",
+    "jc-fs",
+    "jc-fs",
+    "jc-fs",
     "jc-c",
     "jc-c",
 ]
@@ -145,7 +147,15 @@ const flexPositionDinamicBlock = [
 // }
 
 let countDoneButtonNextLvl = 1;
-function doneButtonNextLvl(){   
+
+if(countDoneButtonNextLvl === 1){
+    getStaticSpaceBox.classList.add(lvlList[0]);
+    document.querySelector('.main-container__text-lvl').textContent =  `${lvl[0]}`
+}
+
+function doneButtonNextLvl(){
+    lvl.shift()
+    document.querySelector('.main-container__text-lvl').textContent =  `${lvl[0]}`  
     flexCheckPositionDinamicBlock.shift()
     const numberLvl = ++countDoneButtonNextLvl;
     console.log(numberLvl);
@@ -163,6 +173,7 @@ function doneButtonNextLvl(){
 
     valueTextInput.value = '';
     console.log(flexPositionDinamicBlock);
+    getDinamicSpaceBox.classList.remove(flexPositionDinamicBlock[0]);
     flexPositionDinamicBlock.shift();
     // getDinamicSpaceBox.style.cssText = `${flexPositionDinamicBlock[0]}`
     getDinamicSpaceBox.style.cssText = '';
