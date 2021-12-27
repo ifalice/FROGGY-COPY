@@ -1,5 +1,5 @@
 body {
-  background-color: brown;
+  background-color: #444c5c;
 }
 
 .congratulations-block__style {
@@ -28,14 +28,15 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 5px;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .main-container .main-container__input {
   border-radius: 5px 0px 0px 5px;
   background-color: #444c5c;
   width: 45%;
-  height: 98vh;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,43 +47,86 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
 }
 
-.main-container .main-container__input .main-container__text-lvl {
-  width: 90%;
+.main-container .main-container__input .main-container__explanation-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 0;
+}
+
+.main-container .main-container__input .main-container__explanation-wrapper .main-container__explanation-lvl {
+  width: 80%;
   text-align: center;
   color: #444c5c;
   border-radius: 20px;
   background-color: #78a5a3;
   padding: 5px;
-  -webkit-box-shadow: 3px 3px #ce5a57;
-          box-shadow: 3px 3px #ce5a57;
+  -webkit-box-shadow: 3px 3px 3px #ce5a57;
+          box-shadow: 3px 3px 3px #ce5a57;
+  max-height: 100%;
 }
 
 .main-container .main-container__input .main-container__input-title {
   color: white;
-  font-size: 40px;
-  padding-bottom: 30px;
-  width: 55%;
+  font-size: 60px;
+  padding-bottom: 10px;
+  width: 100%;
   text-align: center;
 }
 
-.main-container .main-container__input .main-container__input-textarea {
+.main-container .main-container__input .main-container__input-title .color_1 {
+  color: #e1b16a;
+  text-shadow: 1px 1px 1px #ce5a57;
+  margin: 0;
+}
+
+.main-container .main-container__input .main-container__input-title .color_2 {
+  color: #ce5a57;
+  text-shadow: 1px 1px 1px #e1b16a;
+  margin: 0;
+}
+
+.main-container .main-container__input .main-container__form-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-container .main-container__input .main-container__form-wrapper .main-container__input-textarea {
   border-radius: 5px;
   background-color: #78a5a3;
-  -webkit-box-shadow: 3px 3px #ce5a57;
-          box-shadow: 3px 3px #ce5a57;
+  -webkit-box-shadow: 3px 3px 3px #ce5a57;
+          box-shadow: 3px 3px 3px #ce5a57;
   width: 66%;
-  color: white;
+  color: #444c5c;
   resize: none;
   overflow: hidden;
   outline: none;
+  padding: 10px;
+  font-size: 20px;
 }
 
-.main-container .main-container__input .main-container__input-button {
+.main-container .main-container__input .main-container__form-wrapper .main-container__input-button {
   height: 30px;
   border-radius: 5px;
   background-color: #78a5a3;
@@ -100,7 +144,7 @@ body {
   transition: border-radius 0.4s ease-out 0.1s;
 }
 
-.main-container .main-container__input input:disabled {
+.main-container .main-container__input .main-container__form-wrapper input:disabled {
   border-radius: 20px;
   cursor: default;
   background-color: #e7e6e6;
@@ -117,8 +161,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 98vh;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 5px;
+  height: 90vh;
+  -webkit-box-shadow: 3px 3px 3px #ce5a57;
+          box-shadow: 3px 3px 3px #ce5a57;
 }
 
 .main-container .container__flex-space .flex-space__box-dinamic {
@@ -136,17 +182,16 @@ body {
   height: 37px;
   width: 37px;
   z-index: 5;
-  margin: 8.5px;
+  margin: 11.5px;
 }
 
 .main-container .container__flex-space .flex-space__box-static {
   width: 100%;
   position: absolute;
-  height: 98vh;
 }
 
 .main-container .container__flex-space .flex-space__box-static .flex-space__item-static {
-  margin: 2px;
+  margin: 5px;
   z-index: 0;
   height: 50px;
   width: 50px;

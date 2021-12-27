@@ -74,7 +74,7 @@ valueTextInput.oninput = function (){
 
 
 const lvl = [
-    "CSS свойство  justify-content определяет, как браузер распределяет пространство между и вокруг элементов контента вдоль главной оси flex контейнера, или вдоль строчной оси grid контейнера.",
+    "CSS свойство  justify-content определяет, как браузер распределяет пространство между и вокруг элементов контента вдоль главной оси flex контейнера, или вдоль строчной оси grid контейнера.CSS свойство  justify-content определяет, как браузер распределяет пространство между и вокруг элементов контента вдоль главной оси flex контейнера, или вдоль строчной оси grid контейнера.",
     "justify-content:center - Выравнивание элементов по центру",
 ]
 
@@ -150,12 +150,12 @@ let countDoneButtonNextLvl = 1;
 
 if(countDoneButtonNextLvl === 1){
     getStaticSpaceBox.classList.add(lvlList[0]);
-    document.querySelector('.main-container__text-lvl').textContent =  `${lvl[0]}`
+    document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[0]}`
 }
 
 function doneButtonNextLvl(){
     lvl.shift()
-    document.querySelector('.main-container__text-lvl').textContent =  `${lvl[0]}`  
+    document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[0]}`  
     flexCheckPositionDinamicBlock.shift()
     const numberLvl = ++countDoneButtonNextLvl;
     console.log(numberLvl);
