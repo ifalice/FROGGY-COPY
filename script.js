@@ -74,9 +74,38 @@ valueTextInput.oninput = function (){
 
 
 const lvl = [
-    "CSS свойство  justify-content определяет, как браузер распределяет пространство между и вокруг элементов контента вдоль главной оси flex контейнера, или вдоль строчной оси grid контейнера.CSS свойство  justify-content определяет, как браузер распределяет пространство между и вокруг элементов контента вдоль главной оси flex контейнера, или вдоль строчной оси grid контейнера.",
-    "justify-content:center - Выравнивание элементов по центру",
-]
+  [
+    "FLEX-BOX",
+    "CSS Flexbox - це технологія для створення складних макетів за рахунок правильного розміщення елементів на сторінці. До прикладу justify-content відповідає за вирівнювання flex-об'єкту по вісі-Х. Зкопіюйте та вставте - justify-content:flex-end;",
+  ],
+  [
+    "JUSTIFY-CONTENT",
+    "justify-content - вирівнює елементи по горизонталі та набуває таких значень:",
+    [
+      "ul",
+      "flex-start: Елементи вирівнюються по лівій стороні контейнера",
+      "flex-end: Елементи вирівнюються по правій стороні контейнера.",
+      "center: Елементи вирівнюються по центру контейнера",
+      "space-between: Елементи вирівнюються по центру контейнера",
+      "space-around: Елементи буде зображено з рівними відступами навколо них.",
+    ],
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+
+];
+    
 
 
 const lvlList = [
@@ -146,16 +175,30 @@ const flexPositionDinamicBlock = [
 
 // }
 
+
 let countDoneButtonNextLvl = 1;
 
 if(countDoneButtonNextLvl === 1){
     getStaticSpaceBox.classList.add(lvlList[0]);
-    document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[0]}`
+    document.querySelector('.main-containter__title-lvl').textContent =  `${lvl[0][0]}`
+    document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[0][1]}`
 }
+
+
+
 
 function doneButtonNextLvl(){
     lvl.shift()
-    document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[0]}`  
+    document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[0][1]}` 
+    document.querySelector('.main-containter__title-lvl').textContent =  `${lvl[0][0]}`  
+    if(lvl[0][2]){
+        if(lvl[0][2].includes('ul')){
+            createUlElement(lvl[0][2]);
+            console.log('true');
+        }  
+    }   
+    
+    console.log(lvl[0][1]);
     flexCheckPositionDinamicBlock.shift()
     const numberLvl = ++countDoneButtonNextLvl;
     console.log(numberLvl);
@@ -220,6 +263,18 @@ function deleteBlocks(numberOfElements, classNameElements){
         }        
     }
 }
+
+function createUlElement(listUlBlock){
+    let ulBlock = document.createElement('ul');
+    document.querySelector('.main-container__explanation-lvl').append(ulBlock); 
+    for(step = 1; step<lvl[0][2].length; step++){
+        let liBlock = document.createElement('li');
+        liBlock.textContent = `${listUlBlock[step]}`
+        liBlock.classList.add('position-text')
+        ulBlock.append(liBlock);         
+    }
+}
+
 
 
 // function replaceObjectsClass(object,firstNameObjectClass, secondNameObjectClass){
