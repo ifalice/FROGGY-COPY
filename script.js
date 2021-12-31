@@ -80,23 +80,158 @@ const lvl = [
   ],
   [
     "JUSTIFY-CONTENT",
-    "justify-content - вирівнює елементи по горизонталі та набуває таких значень:",
+    "justify-content - вирівнює елементи по горизонталі та набуває таких значень: ",
     [
       "ul",
       "flex-start: Елементи вирівнюються по лівій стороні контейнера",
       "flex-end: Елементи вирівнюються по правій стороні контейнера.",
       "center: Елементи вирівнюються по центру контейнера",
-      "space-between: Елементи вирівнюються по центру контейнера",
+      "space-between: Елементи буде зображено з рівними відступами поміж них",
       "space-around: Елементи буде зображено з рівними відступами навколо них.",
     ],
   ],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  [
+    "JUSTIFY-CONTENT",
+    "Перемісти квадрат на задане для нього місце",
+    [
+        "ul",
+        "flex-start",
+        "flex-end",
+        "center",
+        "space-between",
+        "space-around",
+      ],
+
+  ],
+  [
+    "JUSTIFY-CONTENT",
+    "Перемісти квадрат на задане для нього місце",
+    [
+        "ul",
+        "flex-start",
+        "flex-end",
+        "center",
+        "space-between",
+        "space-around",
+      ],
+
+  ],
+  [
+    "ALIGN-ITEMS",
+    "align-items - працює з віссю перпендикулярній віссі Х. Перемішає та змінює елементи по вертикалі.",
+    [   
+        "ul",
+        "flex-start: елементи вирівнюються за верхнім краєм контейнеру.",
+        "flex-end: елементи вирівнюються за нижнім краєм контейнеру.",
+        "center: елементи вирівнюються вертикально по середині контейнера.",
+        "baseline: елементи буде розміщено на базовій лінії контейнера.",
+        "stretch: елементи розтягуються заповнюючи контейнер."
+    ]
+  ],
+  [
+    "ALIGN-ITEMS",
+    "Перемісти квадрат на задане для нього місце",
+    [   
+        "ul",
+        "flex-start",
+        "flex-end",
+        "center",
+        "baseline",
+        "stretch"
+    ]
+  ],
+  [
+    "ALIGN-ITEMS",
+    "Перемісти квадрат на задане для нього місце",
+    [   
+        "ul",
+        "flex-start",
+        "flex-end",
+        "center",
+        "baseline",
+        "stretch"
+    ]
+  ],
+  [
+      "FLEX-DIRECTION",
+      "flex-direction - дозволяє повернути головну вісь та набуває таких значень:",
+      [ "ul",
+        "row: елементи розташовані так само, як напрямок тексту.",
+        "row-reverse: елементи розташовані протилежно напрямку тексту.",
+        "column: елементи розташовані з гори до низу.",
+        "column-reverse: елементи розташовані з низу до гори."   
+      ]
+  ],
+  [
+    "FLEX-DIRECTION",
+    "Перемісти квадрат на задане для нього місце",
+    [ "ul",
+      "row",
+      "row-reverse",
+      "column",
+      "column-reverse"   
+    ]
+],
+[
+    "FLEX-DIRECTION",
+    "Перемісти квадрат на задане для нього місце",
+    [ "ul",
+      "row",
+      "row-reverse",
+      "column",
+      "column-reverse"   
+    ]
+],
+  [
+      "ALIGN-SELF",
+      "align-self це властивість, яку можна застосувати до окремого елементу. Значеня align-self такі ж як в align-items, а саме:",
+      [   
+        "ul",
+        "flex-start: елементи вирівнюються за верхнім краєм контейнеру.",
+        "flex-end: елементи вирівнюються за нижнім краєм контейнеру.",
+        "center: елементи вирівнюються вертикально по середині контейнера.",
+        "baseline: елементи буде розміщено на базовій лінії контейнера.",
+        "stretch: елементи розтягуються заповнюючи контейнер."
+    ]
+  ],
+  [
+    "ALIGN-SELF",
+    "Перемісти квадрат на задане для нього місце",
+    [
+        "ul",
+        "flex-start",
+        "flex-end",
+        "center",
+        "baseline",
+        "stretch"
+        
+    ]
+  ],
+  [
+      "FLEX-WRAP",
+      "flex-wrap дозволяє перенесити елементи на наступний ряд в тому випадку, якщо вони не поміщаються в одному ряді. Набуває таких значень:",
+      [ 
+        "ul",
+        "nowrap: Кожен елемент буде розташований один за одним в одному рядку. Ширина елементів встановлюється автоматично, щоб вміститись в рядок.",
+        "wrap: Елементи переносятся до наступного рядка.",
+        "wrap-reverse: Елементи переносятся до наступного рядка у зворотньому порядку.",
+      ]
+  ],
+  [
+    "FLEX-WRAP",
+    "flex-wrap дозволяє перенесити елементи на наступний ряд в тому випадку, якщо вони не поміщаються в одному ряді. Набуває таких значень:",
+    [ 
+      "ul",
+      "nowrap",
+      "wrap",
+      "wrap-reverse",
+    ]
+],
+  [
+      "FLEX-FLOW",
+      'flex-flow це скорочена властивість, яка об\'єднує flex-wrap та flex-direction. Наприклад flex-flow: row-reverse wrap',
+      
+  ],
   [],
   [],
   [],
@@ -118,8 +253,12 @@ const lvlList = [
   "box-static_flex-lvl-seven-ai-center-jc-center",
   "box-static_flex-lvl-eight-fd-column-jc-flex-end",
   "box-static_flex-lvl-nine-fd-column-jc-flex-end-ai-flex-end",
-  ["box-static_flex-lvl-eleven-js-center-ai-center","box-static_flex-lvl-eleven-as-center"],
- 
+  "box-static_flex-lvl-ten-fd-row-jc-flex-start-ai-flex-start",
+  ["box-static_flex-lvl-eleven-jc-center-ai-center","box-static_flex-lvl-eleven-as-center"],
+  ["box-static_flex-lvl-twelve-jc-center","box-static_flex-lvl-twelve-as-flex-end"],
+  "box-static_flex-lvl-thirteen-fw-wrap",
+  "box-static_flex-lvl-fourteen-fw-wrap-fd-column-ai-center",
+  "box-static_flex-lvl-fifteen-ff-column-wrap-ai-center",
 ];
 
 const flexCheckPositionDinamicBlock = [
@@ -132,7 +271,12 @@ const flexCheckPositionDinamicBlock = [
   ["align-items:center;","justify-content:center;"],
   ["flex-direction:column;","justify-content:flex-end;"],
   ["flex-direction:column;","justify-content:flex-end;","align-items:flex-end;"],
-  "align-self:center",
+  ["flex-direction:row;","justify-content:flex-start;","align-items:flex-start;"],
+  "align-self:center;",
+  "align-self:flex-end;",
+  "flex-wrap:wrap;",
+  ["flex-wrap:wrap;","flex-direction:column;","align-items:center;"],
+  ["flex-flow:wrap column;","align-items:center;"]
 ];
 
 // const flexPositionDinamicBlock = [
@@ -153,8 +297,13 @@ const flexPositionDinamicBlock = [
     "jc-fs",
     "jc-fs",
     "jc-fs",
+    ["fd-c","ai-c","jc-fe"],
     "jc-c",
     "jc-c",
+    "jc-fs",
+    "ai-fs",
+    "ai-fs"
+
 ]
 
 
@@ -202,7 +351,17 @@ function doneButtonNextLvl(){
     flexCheckPositionDinamicBlock.shift()
     const numberLvl = ++countDoneButtonNextLvl;
     console.log(numberLvl);
-    getStaticSpaceBox.classList.remove(lvlList[0]);
+    
+    console.log(typeof(lvlList[0]));
+    if(typeof(lvlList[0])==='object'){
+        getStaticSpaceBox.classList.remove(lvlList[0][0]);
+        getStaticSpaceBox.firstChild.nextSibling.classList.remove(lvlList[0][1]);  
+        console.log('this1');
+    }else{
+        console.log('this');
+        getStaticSpaceBox.classList.remove(lvlList[0]);
+    }
+    
     lvlList.shift()
     
 
@@ -213,22 +372,39 @@ function doneButtonNextLvl(){
     }else{
         getStaticSpaceBox.classList.add(lvlList[0]);
     }
+   
 
     valueTextInput.value = '';
     console.log(flexPositionDinamicBlock);
-    getDinamicSpaceBox.classList.remove(flexPositionDinamicBlock[0]);
+    console.log(typeof(flexPositionDinamicBlock[0]))
+    if(typeof(flexPositionDinamicBlock[0])==='object'){
+        getDinamicSpaceBox.classList.remove(...flexPositionDinamicBlock[0]);    
+    }else{
+        getDinamicSpaceBox.classList.remove(flexPositionDinamicBlock[0]);
+    }
     flexPositionDinamicBlock.shift();
-    // getDinamicSpaceBox.style.cssText = `${flexPositionDinamicBlock[0]}`
+    
+    if(typeof(flexPositionDinamicBlock[0])==='object'){
+        getDinamicSpaceBox.classList.add(...flexPositionDinamicBlock[0]);  
+        console.log('this');
+    }else{
+        getDinamicSpaceBox.classList.add(flexPositionDinamicBlock[0]);  
+
+        
+    }
+    
     getDinamicSpaceBox.style.cssText = '';
-    getDinamicSpaceBox.classList.add(flexPositionDinamicBlock[0]);
+    
     
     console.log(flexPositionDinamicBlock);
 
     if(numberLvl === 3){
         creatNewBlocks(2);    
+    }else if(numberLvl === 13){
+        creatNewBlocks(7)
     }
     getInputDoneButton.setAttribute('disabled','disabled');
-    if(numberLvl === 11){
+    if(numberLvl === 16){
         document.querySelector('.main-container').style.cssText = 'display:none;'
         document.querySelector('.congratulations-block__style').removeAttribute('style')
     }
@@ -270,7 +446,12 @@ function createUlElement(listUlBlock){
     for(step = 1; step<lvl[0][2].length; step++){
         let liBlock = document.createElement('li');
         liBlock.textContent = `${listUlBlock[step]}`
-        liBlock.classList.add('position-text')
+        if(listUlBlock[step].length > 30){
+            ulBlock.classList.add('position-text__start')
+        }else{
+            ulBlock.classList.add('position-text__center')
+        }
+        
         ulBlock.append(liBlock);         
     }
 }

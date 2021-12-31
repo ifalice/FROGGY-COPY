@@ -8,17 +8,29 @@ body{
     margin: 0 auto;
     width: 60%;
     height: 400px;
-    background-color: firebrick;
     display: flex;
     justify-content: center;
-    
+    flex-direction: column;
     align-items: center;
     .congratulations-block__text{
-        font-size: 50px;
-        text-align: center;
-        color: grey;
-
+        font-size: 80px;
+        color: #e1b16a;
+        text-shadow: 1px 1px 1px #ce5a57;
+        margin: 20px;
     }
+    .color_1 {
+        color: #e1b16a;
+        text-shadow: 1px 1px 1px #ce5a57;
+        margin: 20px;
+        font-size: 100px;
+      }
+      
+    .color_2 {
+        color: #ce5a57;
+        text-shadow: 1px 1px 1px #e1b16a;
+        margin: 0;
+        font-size:100px;
+      }
    
 }
 
@@ -33,7 +45,7 @@ body{
     .main-container__input{
         border-radius: 5px 0px 0px 5px;
         background-color: #444c5c;
-        width: 80%;
+        min-width: 50%;
         height: 100%;
         display: flex;
         flex-direction: column; 
@@ -56,10 +68,18 @@ body{
                 font-size: 17px;
                
             }
-            .position-text{
+            .position-text__start{
                 text-align: start;
                 padding-bottom: 2px;
             }
+            .position-text__center{
+                text-align: center;
+                padding-bottom: 2px;
+                list-style-type: none;
+                font-size: 20px;
+                padding-inline-start: 0;
+               
+            }    
             .main-container__lvl-style{
                 width: 80%;
                 text-align: center;
@@ -149,37 +169,40 @@ body{
     .container__flex-space{
         position: relative;
         background-color: #78a5a3;
-        width: 67%;
+        width: 100%;
         display: flex;     
         border-radius: 5px;
         height: 90vh;
         box-shadow: 3px 3px 3px #ce5a57;
+        overflow: hidden;
         
         
         .flex-space__box-dinamic{
             width: 100%;
             display: flex; 
             
+            
             .flex-space__item-dinamic{
                 background-color: #ce5a57;
                 border-radius: 3px;
                 box-shadow: 2px 2px  #444c5c;
-                height: 37px;
-                width: 37px; 
+                height: 74px;
+                width: 74px; 
                 z-index:5;    
-                margin: 11.5px;     
+                margin: 28px;     
             }
         }  
        
         .flex-space__box-static{
             width: 100%;           
             position: absolute;
+            height: 90vh;
             
             .flex-space__item-static{
                 margin: 5px;
                 z-index: 0;   
-                height: 50px;
-                width: 50px;
+                height: 120px;
+                width: 120px;
                 background-color: #e1b16a;     
                 border-radius: 9px;
                 box-shadow: 2px 2px #444c5c;
@@ -311,13 +334,13 @@ body{
     align-items: flex-end;
 }
 
-.box-static_flex-lvl-ten-fd-column-jc-flex-end{
+.box-static_flex-lvl-ten-fd-row-jc-flex-start-ai-flex-start{
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-.box-static_flex-lvl-eleven-js-center-ai-center{
+.box-static_flex-lvl-eleven-jc-center-ai-center{
     display: flex; 
     justify-content: center;
     
@@ -325,6 +348,36 @@ body{
         align-self: center;
     }
 }
+
+
+.box-static_flex-lvl-twelve-jc-center{
+    display: flex; 
+    justify-content: center;
+    
+    
+    .box-static_flex-lvl-twelve-as-flex-end{
+        align-self: flex-end;
+    }
+}
+
+.box-static_flex-lvl-thirteen-fw-wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box-static_flex-lvl-fourteen-fw-wrap-fd-column-ai-center{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-static_flex-lvl-fifteen-ff-column-wrap-ai-center{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
 
 
 .animation-right{
