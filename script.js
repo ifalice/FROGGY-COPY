@@ -411,9 +411,29 @@ function doneButtonNextLvl(){
 
 }
 
+function creatNewBlocksSandboxMode(numberOfElemenst){
+    let newDinamicBlock = document.createElement('div');
+        newDinamicBlock.classList.add('flex-space__item-dinamic');
+        document.querySelector('.flex-space__box-dinamic').prepend(newDinamicBlock);   
+}
+
+function DeleteBlocksSandboxMode(numberOfElemenst){
+    for(step=0;step<numberOfElemenst;step++){
+        document.querySelector('.flex-space__item-dinamic').remove()
+    }  
+}
+
+function RemoveAllBlocksSandboxMode(){
+    const numbetOfDinamicBlocks= document.getElementsByClassName('flex-space__item-dinamic').length;
+    for(step = 1; step<numbetOfDinamicBlocks; step++){
+        document.querySelector('.flex-space__item-dinamic').remove()
+    }  
+}
 
 
-function creatNewBlocks(numberOfElemenst){   
+
+function creatNewBlocks(numberOfElemenst){  
+  
     for(step=0;step<numberOfElemenst;step++){
         let newStaticBlock = document.createElement('div');
         newStaticBlock.classList.add('flex-space__item-static');
@@ -428,17 +448,19 @@ function creatNewBlocks(numberOfElemenst){
 
 
 
-function deleteBlocks(numberOfElements, classNameElements){
-    const boxStatic = document.querySelectorAll(classNameElements); 
-    for(item of boxStatic){
-        if(numberOfElements !=0){
-            numberOfElements--
-            item.remove();
-        }else if(numberOfElements ===0){
-            break;
-        }        
-    }
-}
+
+
+// function deleteBlocks(numberOfElements, classNameElements){
+//     const boxStatic = document.querySelectorAll(classNameElements); 
+//     for(item of boxStatic){
+//         if(numberOfElements !=0){
+//             numberOfElements--
+//             item.remove();
+//         }else if(numberOfElements ===0){
+//             break;
+//         }        
+//     }
+// }
 
 function createUlElement(listUlBlock){
     let ulBlock = document.createElement('ul');
@@ -456,6 +478,62 @@ function createUlElement(listUlBlock){
     }
 }
 
+
+
+
+
+
+const navbarItemLvlMode = document.querySelector('.navbar__item-lvl-mode');
+const navbarItemSandboxMode = document.querySelector('.navbar__item-sandbox-mode');
+const getExplanationLvl = document.querySelector('.main-container__explanation-lvl');
+const getButtonMenu = document.querySelector('.main-container__button-menu');
+const ButtonCreatBlock = document.querySelector('#ButtonCreatBlock')
+const ButtonDeleteBlock = document.querySelector('#ButtonDeleteBlock')
+const ButtonRemoveAllBlock = document.querySelector('#ButtonRemoveAllBlock');
+const getFlexSpaceBoxStatic = document.querySelector('.flex-space__box-static');
+
+ButtonCreatBlock.addEventListener("click", creatNewBlocksSandboxMode.bind(1,1))
+ButtonDeleteBlock.addEventListener("click",DeleteBlocksSandboxMode.bind(1,1))
+ButtonRemoveAllBlock.addEventListener("click",RemoveAllBlocksSandboxMode)
+
+
+navbarItemLvlMode.classList.add('navbar__item-select');
+function listener(event){
+    if(event.currentTarget.getAttribute('id') === "button__lvl-mode"){
+        
+        navbarItemSandboxMode.addEventListener("click", listener)
+        navbarItemSandboxMode.classList.remove('navbar__item-select');
+        navbarItemLvlMode.classList.add('navbar__item-select');
+
+        getExplanationLvl.removeAttribute('style');
+        getInputDoneButton.removeAttribute('style');
+        getButtonMenu.style.cssText = "display:none;";
+        getFlexSpaceBoxStatic.removeAttribute('style');
+
+        console.log(1);
+        navbarItemLvlMode.removeEventListener("click", listener)
+
+        
+    }else if(event.currentTarget.getAttribute('id') === "button__sandbox-mode"){
+        navbarItemLvlMode.addEventListener("click", listener)
+        navbarItemLvlMode.classList.remove('navbar__item-select');
+        navbarItemSandboxMode.classList.add('navbar__item-select');
+
+        getExplanationLvl.style.cssText = "display:none;";
+        getInputDoneButton.style.cssText = "display:none;";
+        getButtonMenu.style.cssText = "display:flex;";
+        getFlexSpaceBoxStatic.style.cssText = "display:none";
+        
+        console.log(2);
+        navbarItemSandboxMode.removeEventListener("click", listener)
+
+    }
+    
+
+
+}
+navbarItemLvlMode.addEventListener("click", listener)
+navbarItemSandboxMode.addEventListener("click", listener)
 
 
 // function replaceObjectsClass(object,firstNameObjectClass, secondNameObjectClass){

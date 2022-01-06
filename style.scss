@@ -135,25 +135,27 @@ body{
         font-weight: 600;
         text-align: center;
         font-size: 18px;   
-        
-        
+        &:hover{
+            background-color: #78a5a3;            
+        }
+        &:active{
+            background-color: #618685;
+        }
+        &:first-child{
+            border-radius: 5px 0px 0px 5px;  
+        }
+        &:last-child{
+            border-radius: 0px 5px 5px 0px; 
+        }
+        &:not(:last-child){
+            border-right: 0;
+            // border-right: 2px #ce5a57 solid;  
+        }  
     }
-    .navbar__item:hover{
-        background-color: #78a5a3;            
+    .navbar__item-select{
+        background-color: #78a5a3
     }
-    .navbar__item:active{
-        background-color: #618685;
-    }
-    .navbar__item:first-child{
-        border-radius: 5px 0px 0px 5px;  
-    }
-    .navbar__item:last-child{
-        border-radius: 0px 5px 5px 0px; 
-    }
-    .navbar__item:not(:last-child){
-        border-right: 0;
-        // border-right: 2px #ce5a57 solid;  
-    }
+    
 }
         .main-container__form-wrapper{
             display: flex;
@@ -209,6 +211,37 @@ body{
                 
             }
         }
+        .main-container__button-menu{
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            .button-block__style{
+                margin-top: 10px;
+                height: 50px;      
+                background-color: #ce5a57;
+                border: 3px #78a5a3 solid;
+                border-radius: 5px;
+                color: #444c5c;
+                cursor: pointer;
+                font-weight: 600;
+                text-align: center;
+                font-size: 20px; 
+                &:hover{
+                    background-color: #78a5a3;  
+        
+                }
+                &:active{
+                    background-color: #618685;
+                }
+                &:not(:last-child){
+                    margin-right:20px;
+                }
+        }
+        
+            
+    }
         
 
     }

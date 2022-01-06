@@ -199,6 +199,10 @@ body {
   border-right: 0;
 }
 
+.main-container .main-container__input .navbar .navbar__item-select {
+  background-color: #78a5a3;
+}
+
 .main-container .main-container__input .main-container__form-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -259,6 +263,44 @@ body {
   -webkit-box-shadow: 2px 2px #a8a2a2;
           box-shadow: 2px 2px #a8a2a2;
   font-weight: 400;
+}
+
+.main-container .main-container__input .main-container__button-menu {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.main-container .main-container__input .main-container__button-menu .button-block__style {
+  margin-top: 10px;
+  height: 50px;
+  background-color: #ce5a57;
+  border: 3px #78a5a3 solid;
+  border-radius: 5px;
+  color: #444c5c;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  font-size: 20px;
+}
+
+.main-container .main-container__input .main-container__button-menu .button-block__style:hover {
+  background-color: #78a5a3;
+}
+
+.main-container .main-container__input .main-container__button-menu .button-block__style:active {
+  background-color: #618685;
+}
+
+.main-container .main-container__input .main-container__button-menu .button-block__style:not(:last-child) {
+  margin-right: 20px;
 }
 
 .main-container .container__flex-space {
