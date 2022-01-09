@@ -327,9 +327,9 @@ body {
   border-radius: 3px;
   -webkit-box-shadow: 2px 2px  #444c5c;
           box-shadow: 2px 2px  #444c5c;
-  height: 15%;
-  width: 15%;
   z-index: 1;
+  width: 15%;
+  height: 15%;
   margin: 5%;
 }
 

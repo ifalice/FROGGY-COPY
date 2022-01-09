@@ -446,7 +446,42 @@ function creatNewBlocks(numberOfElemenst){
          
 }
 
+document.querySelector('.button-change-size').addEventListener('click', changeSizeDinamicItem);
+let widthSize = '10%';
+let heightSize = '10%';
+let marginSize = '10%';
+let countSize = 0;
 
+function changeSizeDinamicItem(event){
+    if(event.currentTarget.getAttribute('id')==="buttonSizeMinus"){
+        countSize--;
+        document.querySelector('.flex-space__item-dinamic').style.cssText = `
+        width:${widthSize};
+        height:${heightSize};
+        margin:${marginSize};
+        `
+
+
+    }else if(event.currentTarget.getAttribute('id')==="buttonSizePlus"){
+
+    } 
+   }
+
+
+// function changeSizeDinamicItem(event){
+//     if(event.currentTarget.getAttribute('id')==="buttonSizeMinus"){
+//         countSize--;
+//         document.querySelector('.flex-space__item-dinamic').style.cssText = `
+//         width:${widthSize};
+//         height:${heightSize};
+//         margin:${marginSize};
+//         `
+
+
+//     }else if(event.currentTarget.getAttribute('id')==="buttonSizePlus"){
+
+//     } 
+//    }
 
 
 

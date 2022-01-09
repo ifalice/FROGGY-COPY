@@ -260,13 +260,32 @@ body{
                 .flex-space__item-dinamic{
                     background-color: #ce5a57;
                     border-radius: 3px;
-                    box-shadow: 2px 2px  #444c5c;
+                    box-shadow: 2px 2px  #444c5c;              
+                    z-index:1;     
+                    width: 15%;
                     height: 15%;
-                    width: 15%; 
-                    z-index:1;  
-                    margin: 5%;  
-                      
+                    margin: 5%;                  
                 }
+                // .flex-space__new-size-one{
+                //     height: 4%;
+                //     width: 4%; 
+                //     margin: 1%;    
+                // }
+                // .flex-space__new-size-two{
+                //     width: 8%;
+                //     height: 8%;
+                //     margin: 2%;
+                // }
+                // .flex-space__new-size-three{
+                //     width: 12%;
+                //     height: 12%;
+                //     margin: 3%;
+                // }
+                // .flex-space__new-size-four{
+                //     width: 15%;
+                //     height: 15%;
+                //     margin: 5%;
+                // }
             } 
             .flex-space__box-static{
                 position: absolute;
