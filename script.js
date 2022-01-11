@@ -414,7 +414,12 @@ function doneButtonNextLvl(){
 function creatNewBlocksSandboxMode(numberOfElemenst){
     let newDinamicBlock = document.createElement('div');
         newDinamicBlock.classList.add('flex-space__item-dinamic');
-        document.querySelector('.flex-space__box-dinamic').prepend(newDinamicBlock);   
+        document.querySelector('.flex-space__box-dinamic').prepend(newDinamicBlock);
+        newDinamicBlock.style.cssText = `
+            width:${widthSize}%;
+            height:${heightSize}%;
+            margin:${marginSize}%;
+            ` 
 }
 
 function DeleteBlocksSandboxMode(numberOfElemenst){
@@ -446,26 +451,78 @@ function creatNewBlocks(numberOfElemenst){
          
 }
 
-document.querySelector('.button-change-size').addEventListener('click', changeSizeDinamicItem);
-let widthSize = '10%';
-let heightSize = '10%';
-let marginSize = '10%';
+document.querySelector('.button-change-size-minus').addEventListener('click', changeSizeDinamicItem);
+document.querySelector('.button-change-size-plus').addEventListener('click', changeSizeDinamicItem);
+
+
+
+
+
+let test = document.getElementsByClassName('flex-space__item-dinamic');
+
+
+
 let countSize = 0;
+let widthSize = 15;
+let heightSize = 15;
+let marginSize = 5;
 
 function changeSizeDinamicItem(event){
+    console.log(countSize);
+
     if(event.currentTarget.getAttribute('id')==="buttonSizeMinus"){
+        document.querySelector('.button-change-size-plus').removeAttribute("disabled");  
         countSize--;
-        document.querySelector('.flex-space__item-dinamic').style.cssText = `
-        width:${widthSize};
-        height:${heightSize};
-        margin:${marginSize};
-        `
+        if(countSize===-4){
+            document.querySelector('.button-change-size-minus').setAttribute("disabled", "disabled");            
+        }else{
+            let itemDinamic = document.getElementsByClassName('flex-space__item-dinamic');
+            widthSize-=2;
+            heightSize-=2;
+            marginSize--;
 
+            for(elem of itemDinamic){
+               
+                // console.log(elem);
+                elem.style.cssText = `
+                width:${widthSize}%;
+                height:${heightSize}%;
+                margin:${marginSize}%;
+                `
+                
 
+        }
+    
+        }
     }else if(event.currentTarget.getAttribute('id')==="buttonSizePlus"){
+        countSize++;
+        document.querySelector('.button-change-size-minus').removeAttribute("disabled");  
+        
+        if(countSize===4){
+            document.querySelector('.button-change-size-plus').setAttribute("disabled", "disabled");  
+        }else{
+    
+          
+            let itemDinamic = document.getElementsByClassName('flex-space__item-dinamic');
+            widthSize+=2;
+            heightSize+=2;
+            marginSize++;
 
-    } 
+            for(elem of itemDinamic){     
+                elem.style.cssText = `
+                width:${widthSize}%;
+                height:${heightSize}%;
+                margin:${marginSize}%;
+                `
+            
+        
+
+        } 
+
+        }
+        
    }
+}
 
 
 // function changeSizeDinamicItem(event){
