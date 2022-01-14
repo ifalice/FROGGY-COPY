@@ -1,3 +1,4 @@
+// localStorage
 const valueTextInput = document.querySelector('.main-container__input-textarea');
 const getInputDoneButton = document.querySelector('.main-container__input-button');
 const getStaticSpaceBox = document.querySelector('.flex-space__box-static');
