@@ -4,10 +4,11 @@ const getInputDoneButton = document.querySelector('.main-container__input-button
 const getStaticSpaceBox = document.querySelector('.flex-space__box-static');
 const getDinamicSpaceBox = document.querySelector('.flex-space__box-dinamic');
 
+let countLvl = localStorage.getItem("countLvl")
 
 
 valueTextInput.oninput = function (){       
-        if(typeof(lvlList[0]) === 'object'){
+        if(typeof(lvlList[countLvl]) === 'object'){
             getDinamicSpaceBox.firstChild.nextSibling.style.cssText = `${valueTextInput.value}`;    
         }else{
             getDinamicSpaceBox.style.cssText = `${valueTextInput.value}`;  
@@ -15,7 +16,7 @@ valueTextInput.oninput = function (){
        
            
         let getValueInputText = valueTextInput.value;       
-        if(typeof(flexCheckPositionDinamicBlock[0])==='object'){
+        if(typeof(flexCheckPositionDinamicBlock[countLvl])==='object'){
             checkPluralValueInputText(getValueInputText);
         }else{
             checkValueInputText(getValueInputText);  
@@ -26,11 +27,11 @@ valueTextInput.oninput = function (){
     function checkValueInputText(inputText){
        
       
-            if(inputText.includes(flexCheckPositionDinamicBlock[0])){      
+            if(inputText.includes(flexCheckPositionDinamicBlock[countLvl])){      
                 getInputDoneButton.removeAttribute('disabled');      
             }else if(inputText.slice(-1)!=';'){
                 inputText+=";"
-                if(inputText.includes(flexCheckPositionDinamicBlock[0])){     
+                if(inputText.includes(flexCheckPositionDinamicBlock[countLvl])){     
                     getInputDoneButton.removeAttribute('disabled');  
                 }else{
                     getInputDoneButton.setAttribute('disabled','disabled');
@@ -44,10 +45,10 @@ valueTextInput.oninput = function (){
 
     function checkPluralValueInputText(inputText){           
         let count = [];
-        flexCheckPositionDinamicBlock[0].forEach(function(item) {     
+        flexCheckPositionDinamicBlock[countLvl].forEach(function(item) {     
         if(inputText.includes(item)){         
             count.push(true); 
-            if(count.length === flexCheckPositionDinamicBlock[0].length){
+            if(count.length === flexCheckPositionDinamicBlock[countLvl].length){
                 getInputDoneButton.removeAttribute('disabled');                          
             }else{    
                 getInputDoneButton.setAttribute('disabled','disabled');                
@@ -58,7 +59,7 @@ valueTextInput.oninput = function (){
             if(inputText.includes(item)){
                 count.push(true); 
                 console.log(count);            
-                if(count.length === flexCheckPositionDinamicBlock[0].length){
+                if(count.length === flexCheckPositionDinamicBlock[countLvl].length){
                     getInputDoneButton.removeAttribute('disabled');    
                 }else{
                     getInputDoneButton.setAttribute('disabled','disabled');                        
@@ -326,70 +327,68 @@ const flexPositionDinamicBlock = [
 // }
 
 
-let countDoneButtonNextLvl = 1;
+getStaticSpaceBox.classList.add(lvlList[countLvl]);
+document.querySelector('.main-containter__title-lvl').textContent =  `${lvl[countLvl][0]}`
+document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[countLvl][1]}`
 
-if(countDoneButtonNextLvl === 1){
-    getStaticSpaceBox.classList.add(lvlList[0]);
-    document.querySelector('.main-containter__title-lvl').textContent =  `${lvl[0][0]}`
-    document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[0][1]}`
-}
 
 
 
 
 function doneButtonNextLvl(){
-    lvl.shift()
-    document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[0][1]}` 
-    document.querySelector('.main-containter__title-lvl').textContent =  `${lvl[0][0]}`  
-    if(lvl[0][2]){
-        if(lvl[0][2].includes('ul')){
-            createUlElement(lvl[0][2]);
+    countLvl++;
+    localStorage.setItem("countLvl", countLvl);
+    localCountLvl = localStorage.getItem("countLvl");
+  
+    document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[countLvl][1]}` 
+    document.querySelector('.main-containter__title-lvl').textContent =  `${lvl[countLvl][0]}`  
+    if(lvl[countLvl][2]){
+        if(lvl[countLvl][2].includes('ul')){
+            createUlElement(lvl[countLvl][2]);
             console.log('true');
         }  
     }   
     
-    console.log(lvl[0][1]);
-    flexCheckPositionDinamicBlock.shift()
+
+
     const numberLvl = ++countDoneButtonNextLvl;
-    console.log(numberLvl);
-    
-    console.log(typeof(lvlList[0]));
-    if(typeof(lvlList[0])==='object'){
-        getStaticSpaceBox.classList.remove(lvlList[0][0]);
-        getStaticSpaceBox.firstChild.nextSibling.classList.remove(lvlList[0][1]);  
+
+
+    if(typeof(lvlList[countLvl-1])==='object'){
+        getStaticSpaceBox.classList.remove(lvlList[countLvl-1][0]);
+        getStaticSpaceBox.firstChild.nextSibling.classList.remove(lvlList[countLvl-1][1]);  
         console.log('this1');
     }else{
         console.log('this');
-        getStaticSpaceBox.classList.remove(lvlList[0]);
+        getStaticSpaceBox.classList.remove(lvlList[countLvl-1]);
     }
     
-    lvlList.shift()
+ 
     
 
-    if(typeof(lvlList[0])==='object'){          
-        getStaticSpaceBox.classList.add(lvlList[0][0]);
-        getStaticSpaceBox.firstChild.nextSibling.classList.add(lvlList[0][1]);  
-        console.log(getStaticSpaceBox.firstChild);   
+    if(typeof(lvlList[countLvl])==='object'){          
+        getStaticSpaceBox.classList.add(lvlList[countLvl][0]);
+        getStaticSpaceBox.firstChild.nextSibling.classList.add(lvlList[countLvl][1]); 
+        console.log('obj'); 
+      
     }else{
-        getStaticSpaceBox.classList.add(lvlList[0]);
+        getStaticSpaceBox.classList.add(lvlList[countLvl]);
+        console.log('oneitem');
     }
    
 
     valueTextInput.value = '';
-    console.log(flexPositionDinamicBlock);
-    console.log(typeof(flexPositionDinamicBlock[0]))
-    if(typeof(flexPositionDinamicBlock[0])==='object'){
-        getDinamicSpaceBox.classList.remove(...flexPositionDinamicBlock[0]);    
+    if(typeof(flexPositionDinamicBlock[countLvl-1])==='object'){
+        getDinamicSpaceBox.classList.remove(...flexPositionDinamicBlock[countLvl-1]);    
     }else{
-        getDinamicSpaceBox.classList.remove(flexPositionDinamicBlock[0]);
+        getDinamicSpaceBox.classList.remove(flexPositionDinamicBlock[countLvl-1]);
     }
-    flexPositionDinamicBlock.shift();
+
     
-    if(typeof(flexPositionDinamicBlock[0])==='object'){
-        getDinamicSpaceBox.classList.add(...flexPositionDinamicBlock[0]);  
-        console.log('this');
+    if(typeof(flexPositionDinamicBlock[countLvl])==='object'){
+        getDinamicSpaceBox.classList.add(...flexPositionDinamicBlock[countLvl]);  
     }else{
-        getDinamicSpaceBox.classList.add(flexPositionDinamicBlock[0]);  
+        getDinamicSpaceBox.classList.add(flexPositionDinamicBlock[countLvl]);  
 
         
     }
@@ -397,18 +396,25 @@ function doneButtonNextLvl(){
     getDinamicSpaceBox.style.cssText = '';
     
     
-    console.log(flexPositionDinamicBlock);
+
 
     if(numberLvl === 3){
         creatNewBlocks(2);    
     }else if(numberLvl === 13){
-        creatNewBlocks(7)
+        creatNewBlocks(5)
     }
+
     getInputDoneButton.setAttribute('disabled','disabled');
     if(numberLvl === 16){
         document.querySelector('.main-container').style.cssText = 'display:none;'
         document.querySelector('.congratulations-block__style').removeAttribute('style')
     }
+
+    
+    console.log(countLvl);
+    console.log(flexCheckPositionDinamicBlock[countLvl]);
+    console.log(flexPositionDinamicBlock[countLvl]);
+    console.log(lvlList[countLvl][0], lvlList[countLvl][1]);
 
 }
 
@@ -558,7 +564,7 @@ function changeSizeDinamicItem(event){
 function createUlElement(listUlBlock){
     let ulBlock = document.createElement('ul');
     document.querySelector('.main-container__explanation-lvl').append(ulBlock); 
-    for(step = 1; step<lvl[0][2].length; step++){
+    for(step = 1; step<lvl[countLvl][2].length; step++){
         let liBlock = document.createElement('li');
         liBlock.textContent = `${listUlBlock[step]}`
         if(listUlBlock[step].length > 30){
