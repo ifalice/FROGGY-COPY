@@ -54,11 +54,11 @@ valueTextInput.oninput = function (){
                 getInputDoneButton.setAttribute('disabled','disabled');                
             }                     
         }else if(inputText.slice(-1)!=';'){       
-            console.log(2);
+     
             inputText+=';';  
             if(inputText.includes(item)){
                 count.push(true); 
-                console.log(count);            
+        
                 if(count.length === flexCheckPositionDinamicBlock[countLvl].length){
                     getInputDoneButton.removeAttribute('disabled');    
                 }else{
@@ -66,7 +66,7 @@ valueTextInput.oninput = function (){
                 }  
             }
         }else{
-            console.log(3);
+   
             getInputDoneButton.setAttribute('disabled','disabled');    
         }
     });
@@ -313,7 +313,7 @@ const flexPositionDinamicBlock = [
 // function doneButtonNextLvl(){ 
 //     flexCheckPositionDinamicBlock.shift()
 //     const count_2 = ++countDoneButtonNextLvl;
-//     console.log(count_2);
+
 //     getClassName = document.querySelector('.flex-space__box-static');
 //     replaceObjectsClass(getClassName,lvlList[0],lvlList[1]) 
 //     lvlList.shift()
@@ -333,47 +333,47 @@ document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl
 
 
 
+getInputDoneButton.addEventListener('click', doneButtonNextLvl);
+const numberFrogg = [1,1,3,3,4,4,4,3,3,3,3,3,8,8,8];
 
 
-function doneButtonNextLvl(){
-    countLvl++;
-    localStorage.setItem("countLvl", countLvl);
-    localCountLvl = localStorage.getItem("countLvl");
-  
+function renderLvl(countLvl){
+    countLvl = parseInt(countLvl)
+    
+    RemoveAllBlocks()
+    creatNewBlocks(numberFrogg[countLvl])
+
+
     document.querySelector('.main-container__explanation-lvl').textContent =  `${lvl[countLvl][1]}` 
     document.querySelector('.main-containter__title-lvl').textContent =  `${lvl[countLvl][0]}`  
     if(lvl[countLvl][2]){
         if(lvl[countLvl][2].includes('ul')){
             createUlElement(lvl[countLvl][2]);
-            console.log('true');
+           
         }  
     }   
     
 
-
-    const numberLvl = ++countDoneButtonNextLvl;
-
-
     if(typeof(lvlList[countLvl-1])==='object'){
         getStaticSpaceBox.classList.remove(lvlList[countLvl-1][0]);
         getStaticSpaceBox.firstChild.nextSibling.classList.remove(lvlList[countLvl-1][1]);  
-        console.log('this1');
+     
     }else{
-        console.log('this');
+  
         getStaticSpaceBox.classList.remove(lvlList[countLvl-1]);
     }
-    
- 
-    
+
 
     if(typeof(lvlList[countLvl])==='object'){          
         getStaticSpaceBox.classList.add(lvlList[countLvl][0]);
         getStaticSpaceBox.firstChild.nextSibling.classList.add(lvlList[countLvl][1]); 
-        console.log('obj'); 
+        console.log(1);
+
       
     }else{
         getStaticSpaceBox.classList.add(lvlList[countLvl]);
-        console.log('oneitem');
+        console.log(2);
+    
     }
    
 
@@ -394,27 +394,24 @@ function doneButtonNextLvl(){
     }
     
     getDinamicSpaceBox.style.cssText = '';
-    
-    
+  
 
-
-    if(numberLvl === 3){
-        creatNewBlocks(2);    
-    }else if(numberLvl === 13){
-        creatNewBlocks(5)
-    }
 
     getInputDoneButton.setAttribute('disabled','disabled');
-    if(numberLvl === 16){
+    if(countLvl === 16){
         document.querySelector('.main-container').style.cssText = 'display:none;'
         document.querySelector('.congratulations-block__style').removeAttribute('style')
     }
 
-    
-    console.log(countLvl);
-    console.log(flexCheckPositionDinamicBlock[countLvl]);
-    console.log(flexPositionDinamicBlock[countLvl]);
-    console.log(lvlList[countLvl][0], lvlList[countLvl][1]);
+}
+
+renderLvl(countLvl);
+
+function doneButtonNextLvl(){
+    countLvl = parseInt(countLvl)
+    countLvl++;
+    localStorage.setItem("countLvl",countLvl)
+    renderLvl(countLvl)
 
 }
 
@@ -442,9 +439,17 @@ function RemoveAllBlocksSandboxMode(){
     }  
 }
 
+function RemoveAllBlocks(){
+    const numbetOfDinamicBlocks= document.getElementsByClassName('flex-space__item-dinamic').length;
+    for(step = 0; step<numbetOfDinamicBlocks; step++){
+        document.querySelector('.flex-space__item-dinamic').remove()
+        document.querySelector('.flex-space__item-static').remove()
+    }  
+}
 
 
 function creatNewBlocks(numberOfElemenst){  
+
   
     for(step=0;step<numberOfElemenst;step++){
         let newStaticBlock = document.createElement('div');
@@ -475,7 +480,7 @@ let heightSize = 15;
 let marginSize = 5;
 
 function changeSizeDinamicItem(event){
-    console.log(countSize);
+
 
     if(event.currentTarget.getAttribute('id')==="buttonSizeMinus"){
         document.querySelector('.button-change-size-plus').removeAttribute("disabled");  
@@ -490,7 +495,7 @@ function changeSizeDinamicItem(event){
 
             for(elem of itemDinamic){
                
-                // console.log(elem);
+     
                 elem.style.cssText = `
                 width:${widthSize}%;
                 height:${heightSize}%;
@@ -609,7 +614,6 @@ function listener(event){
         getButtonMenu.style.cssText = "display:none;";
         getFlexSpaceBoxStatic.removeAttribute('style');
 
-        console.log(1);
         navbarItemLvlMode.removeEventListener("click", listener)
 
         
@@ -623,7 +627,7 @@ function listener(event){
         getButtonMenu.style.cssText = "display:flex;";
         getFlexSpaceBoxStatic.style.cssText = "display:none";
         
-        console.log(2);
+
         navbarItemSandboxMode.removeEventListener("click", listener)
 
     }
