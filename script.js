@@ -537,34 +537,6 @@ function changeSizeDinamicItem(event){
 }
 
 
-// function changeSizeDinamicItem(event){
-//     if(event.currentTarget.getAttribute('id')==="buttonSizeMinus"){
-//         countSize--;
-//         document.querySelector('.flex-space__item-dinamic').style.cssText = `
-//         width:${widthSize};
-//         height:${heightSize};
-//         margin:${marginSize};
-//         `
-
-
-//     }else if(event.currentTarget.getAttribute('id')==="buttonSizePlus"){
-
-//     } 
-//    }
-
-
-
-// function deleteBlocks(numberOfElements, classNameElements){
-//     const boxStatic = document.querySelectorAll(classNameElements); 
-//     for(item of boxStatic){
-//         if(numberOfElements !=0){
-//             numberOfElements--
-//             item.remove();
-//         }else if(numberOfElements ===0){
-//             break;
-//         }        
-//     }
-// }
 
 function createUlElement(listUlBlock){
     let ulBlock = document.createElement('ul');
@@ -638,9 +610,11 @@ function listener(event){
 navbarItemLvlMode.addEventListener("click", listener)
 navbarItemSandboxMode.addEventListener("click", listener)
 
-
-// function replaceObjectsClass(object,firstNameObjectClass, secondNameObjectClass){
-//     object.classList.remove(firstNameObjectClass);
-//     object.classList.add(secondNameObjectClass);
-// }
-
+document.querySelector(".button-restart").addEventListener('click', function(){
+    countLvl = parseInt(countLvl)
+    countLvl=0;
+    getStaticSpaceBox.className = "flex-space__box-static"
+    getDinamicSpaceBox.className = "flex-space__box-dinamic"
+    localStorage.setItem("countLvl",countLvl)
+    renderLvl(countLvl)
+})

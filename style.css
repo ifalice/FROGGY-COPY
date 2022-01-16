@@ -145,7 +145,7 @@ body {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  margin: 0;
+  margin: 20px 0 0 0;
   padding-left: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -400,6 +400,39 @@ body {
     width: 30vw;
     height: 30vw;
   }
+}
+
+.restart-wrapper {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.restart-wrapper .button-restart {
+  height: 30px;
+  background-color: #ce5a57;
+  border: 3px #78a5a3 solid;
+  border-radius: 5px;
+  color: #444c5c;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  font-size: 20px;
+}
+
+.restart-wrapper .button-restart:hover {
+  background-color: #78a5a3;
+}
+
+.restart-wrapper .button-restart:active {
+  background-color: #618685;
 }
 
 .jc-c {
