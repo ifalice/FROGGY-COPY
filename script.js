@@ -3,8 +3,11 @@ const valueTextInput = document.querySelector('.main-container__input-textarea')
 const getInputDoneButton = document.querySelector('.main-container__input-button');
 const getStaticSpaceBox = document.querySelector('.flex-space__box-static');
 const getDinamicSpaceBox = document.querySelector('.flex-space__box-dinamic');
+let numbrerItemSandBoxMode = localStorage.getItem('numbrerItemSandBoxMode');
 
 let countLvl = localStorage.getItem("countLvl")
+
+
 
 
 valueTextInput.oninput = function (){       
@@ -367,12 +370,12 @@ function renderLvl(countLvl){
     if(typeof(lvlList[countLvl])==='object'){          
         getStaticSpaceBox.classList.add(lvlList[countLvl][0]);
         getStaticSpaceBox.firstChild.nextSibling.classList.add(lvlList[countLvl][1]); 
-        console.log(1);
+   
 
       
     }else{
         getStaticSpaceBox.classList.add(lvlList[countLvl]);
-        console.log(2);
+
     
     }
    
@@ -407,6 +410,27 @@ function renderLvl(countLvl){
 
 renderLvl(countLvl);
 
+
+//////////////////////////////
+function renderItemSandBoxMode(){
+    console.log('hitec');
+    console.log(getDinamicSpaceBox.classList.contains('sandbox-mode'));
+    console.log(getDinamicSpaceBox.classList);
+    if(getDinamicSpaceBox.classList.contains('sandbox-mode')){
+        console.log('in if');
+        for(item=1;item<localStorage.getItem('numberItemSandBoxMode');item++){
+            console.log('for');
+            newItem = document.createElement('div');
+            newItem.classList.add('flex-space__item-dinamic');
+            document.querySelector('.sandbox-mode').prepend(newItem);
+        }
+        
+    }
+    
+}
+
+
+
 function doneButtonNextLvl(){
     countLvl = parseInt(countLvl)
     countLvl++;
@@ -416,6 +440,7 @@ function doneButtonNextLvl(){
 }
 
 function creatNewBlocksSandboxMode(numberOfElemenst){
+    localStorage.setItem("numberItemSandBoxMode", numbrerItemSandBoxMode++);
     let newDinamicBlock = document.createElement('div');
         newDinamicBlock.classList.add('flex-space__item-dinamic');
         document.querySelector('.flex-space__box-dinamic').prepend(newDinamicBlock);
@@ -426,13 +451,19 @@ function creatNewBlocksSandboxMode(numberOfElemenst){
             ` 
 }
 
-function DeleteBlocksSandboxMode(numberOfElemenst){
+
+function DeleteBlocksSandboxMode(numberOfElemenst){  
+    localStorage.setItem("numberItemSandBoxMode", numbrerItemSandBoxMode--);
     for(step=0;step<numberOfElemenst;step++){
         document.querySelector('.flex-space__item-dinamic').remove()
     }  
 }
 
-function RemoveAllBlocksSandboxMode(){
+function RemoveAllBlocksSandboxMode(option){
+    if(option == true){
+        localStorage.setItem("numberItemSandBoxMode", 1);
+    }
+
     const numbetOfDinamicBlocks= document.getElementsByClassName('flex-space__item-dinamic').length;
     for(step = 1; step<numbetOfDinamicBlocks; step++){
         document.querySelector('.flex-space__item-dinamic').remove()
@@ -440,12 +471,30 @@ function RemoveAllBlocksSandboxMode(){
 }
 
 function RemoveAllBlocks(){
-    const numbetOfDinamicBlocks= document.getElementsByClassName('flex-space__item-dinamic').length;
-    for(step = 0; step<numbetOfDinamicBlocks; step++){
+    const numberOfDinamicBlocks= document.getElementsByClassName('flex-space__item-dinamic').length;
+    const numberOfStaticBlocks = document.getElementsByClassName('flex-space__item-static').length;
+    for(step = 0; step<numberOfDinamicBlocks; step++){
         document.querySelector('.flex-space__item-dinamic').remove()
+    } 
+    for(step = 0; step<numberOfStaticBlocks; step++){
         document.querySelector('.flex-space__item-static').remove()
-    }  
+    }   
 }
+
+// function RemoveAllBlocks(){
+//     const numbetOfDinamicBlocks= document.getElementsByClassName('flex-space__item-dinamic').length;
+//     if(getDinamicSpaceBox.classList.contains('lvl-mode')){
+//         for(step = 0; step<numbetOfDinamicBlocks; step++){
+//             document.querySelector('.flex-space__item-dinamic').remove()
+//             document.querySelector('.flex-space__item-static').remove()
+//         }  
+//     }else{
+//         for(step = 0; step<numbetOfDinamicBlocks; step++){
+//             document.querySelector('.flex-space__item-dinamic').remove()
+//         }  
+//     }
+    
+// }
 
 
 function creatNewBlocks(numberOfElemenst){  
@@ -480,7 +529,6 @@ let heightSize = 15;
 let marginSize = 5;
 
 function changeSizeDinamicItem(event){
-
 
     if(event.currentTarget.getAttribute('id')==="buttonSizeMinus"){
         document.querySelector('.button-change-size-plus').removeAttribute("disabled");  
@@ -568,45 +616,78 @@ const ButtonDeleteBlock = document.querySelector('#ButtonDeleteBlock')
 const ButtonRemoveAllBlock = document.querySelector('#ButtonRemoveAllBlock');
 const getFlexSpaceBoxStatic = document.querySelector('.flex-space__box-static');
 
-ButtonCreatBlock.addEventListener("click", creatNewBlocksSandboxMode.bind(1,1))
-ButtonDeleteBlock.addEventListener("click",DeleteBlocksSandboxMode.bind(1,1))
-ButtonRemoveAllBlock.addEventListener("click",RemoveAllBlocksSandboxMode)
+
+
+ButtonCreatBlock.addEventListener("click", creatNewBlocksSandboxMode.bind(null,1))
+ButtonDeleteBlock.addEventListener("click",DeleteBlocksSandboxMode.bind(null,1))
+ButtonRemoveAllBlock.addEventListener("click",RemoveAllBlocksSandboxMode.bind(null, true))
 
 
 navbarItemLvlMode.classList.add('navbar__item-select');
-function listener(event){
-    if(event.currentTarget.getAttribute('id') === "button__lvl-mode"){
-        
-        navbarItemSandboxMode.addEventListener("click", listener)
-        navbarItemSandboxMode.classList.remove('navbar__item-select');
-        navbarItemLvlMode.classList.add('navbar__item-select');
+localStorage.setItem('mode', localStorage.getItem('mode'))
 
-        getExplanationLvl.removeAttribute('style');
-        getInputDoneButton.removeAttribute('style');
-        getButtonMenu.style.cssText = "display:none;";
-        getFlexSpaceBoxStatic.removeAttribute('style');
 
-        navbarItemLvlMode.removeEventListener("click", listener)
+function lvlMode(){
+    localStorage.setItem('mode', 'lvl-mode');
+    navbarItemSandboxMode.addEventListener("click", listener)
+    navbarItemSandboxMode.classList.remove('navbar__item-select');
+    navbarItemLvlMode.classList.add('navbar__item-select');
+    getDinamicSpaceBox.classList.remove('sandbox-mode');
+    getDinamicSpaceBox.classList.add('lvl-mode');
 
-        
-    }else if(event.currentTarget.getAttribute('id') === "button__sandbox-mode"){
-        navbarItemLvlMode.addEventListener("click", listener)
-        navbarItemLvlMode.classList.remove('navbar__item-select');
-        navbarItemSandboxMode.classList.add('navbar__item-select');
+    getExplanationLvl.removeAttribute('style');
+    getInputDoneButton.removeAttribute('style');
+    getButtonMenu.style.cssText = "display:none;";
+    getFlexSpaceBoxStatic.removeAttribute('style');
 
-        getExplanationLvl.style.cssText = "display:none;";
-        getInputDoneButton.style.cssText = "display:none;";
-        getButtonMenu.style.cssText = "display:flex;";
-        getFlexSpaceBoxStatic.style.cssText = "display:none";
-        
-
-        navbarItemSandboxMode.removeEventListener("click", listener)
-
-    }
-    
-
+    navbarItemLvlMode.removeEventListener("click", listener)
+    renderLvl(countLvl)
 
 }
+function sandBoxMode(){
+    
+
+    localStorage.setItem('mode', 'sandbox-mode');
+    getDinamicSpaceBox.classList.add('sandbox-mode')
+    RemoveAllBlocksSandboxMode()
+    renderItemSandBoxMode()
+    
+    navbarItemLvlMode.addEventListener("click", listener)
+    navbarItemLvlMode.classList.remove('navbar__item-select');
+    navbarItemSandboxMode.classList.add('navbar__item-select');
+    getDinamicSpaceBox.className = ''
+    getDinamicSpaceBox.classList.add(...['flex-space__box-dinamic','sandbox-mode']);
+    
+    getExplanationLvl.style.cssText = "display:none;";
+    getInputDoneButton.style.cssText = "display:none;";
+    getButtonMenu.style.cssText = "display:flex;";
+    getFlexSpaceBoxStatic.style.cssText = "display:none";
+    
+
+    navbarItemSandboxMode.removeEventListener("click", listener)
+    
+}
+
+function listener(event){  
+    if(event.currentTarget.getAttribute('id') === "button__lvl-mode"){
+        lvlMode()      
+    }else if(event.currentTarget.getAttribute('id') === "button__sandbox-mode"){
+        sandBoxMode()
+    }
+}
+
+if(localStorage.getItem('mode')==='lvl-mode'){
+    getDinamicSpaceBox.classList.add('lvl-mode')
+    lvlMode()
+}else if(localStorage.getItem('mode')==='sandbox-mode'){
+    console.log('h2');
+    getDinamicSpaceBox.classList.add('sandbox-mode')
+    sandBoxMode()
+    
+}
+
+
+
 navbarItemLvlMode.addEventListener("click", listener)
 navbarItemSandboxMode.addEventListener("click", listener)
 
