@@ -3,9 +3,20 @@ const valueTextInput = document.querySelector('.main-container__input-textarea')
 const getInputDoneButton = document.querySelector('.main-container__input-button');
 const getStaticSpaceBox = document.querySelector('.flex-space__box-static');
 const getDinamicSpaceBox = document.querySelector('.flex-space__box-dinamic');
-let numbrerItemSandBoxMode = localStorage.getItem('numbrerItemSandBoxMode');
 
+
+
+
+
+if(localStorage.length === 0){
+    localStorage.setItem('countLvl',0)
+    localStorage.setItem('mode','lvl-mode')
+    localStorage.setItem('numberItemSandBoxMode', 1)
+    localStorage.setItem('countSize', 0)
+}
 let countLvl = localStorage.getItem("countLvl")
+let numberItemSandBoxMode = localStorage.getItem('numberItemSandBoxMode');
+
 
 
 
@@ -413,13 +424,11 @@ renderLvl(countLvl);
 
 //////////////////////////////
 function renderItemSandBoxMode(){
-    console.log('hitec');
-    console.log(getDinamicSpaceBox.classList.contains('sandbox-mode'));
-    console.log(getDinamicSpaceBox.classList);
+ 
     if(getDinamicSpaceBox.classList.contains('sandbox-mode')){
-        console.log('in if');
+  
         for(item=1;item<localStorage.getItem('numberItemSandBoxMode');item++){
-            console.log('for');
+        
             newItem = document.createElement('div');
             newItem.classList.add('flex-space__item-dinamic');
             document.querySelector('.sandbox-mode').prepend(newItem);
@@ -440,7 +449,10 @@ function doneButtonNextLvl(){
 }
 
 function creatNewBlocksSandboxMode(numberOfElemenst){
-    localStorage.setItem("numberItemSandBoxMode", numbrerItemSandBoxMode++);
+
+    localStorage.setItem("numberItemSandBoxMode", ++numberItemSandBoxMode);
+
+
     let newDinamicBlock = document.createElement('div');
         newDinamicBlock.classList.add('flex-space__item-dinamic');
         document.querySelector('.flex-space__box-dinamic').prepend(newDinamicBlock);
@@ -453,7 +465,7 @@ function creatNewBlocksSandboxMode(numberOfElemenst){
 
 
 function DeleteBlocksSandboxMode(numberOfElemenst){  
-    localStorage.setItem("numberItemSandBoxMode", numbrerItemSandBoxMode--);
+    localStorage.setItem("numberItemSandBoxMode", --numberItemSandBoxMode);
     for(step=0;step<numberOfElemenst;step++){
         document.querySelector('.flex-space__item-dinamic').remove()
     }  
@@ -529,8 +541,10 @@ let heightSize = 15;
 let marginSize = 5;
 
 function changeSizeDinamicItem(event){
-
+    
     if(event.currentTarget.getAttribute('id')==="buttonSizeMinus"){
+     
+
         document.querySelector('.button-change-size-plus').removeAttribute("disabled");  
         countSize--;
         if(countSize===-4){
@@ -662,6 +676,7 @@ function sandBoxMode(){
     getInputDoneButton.style.cssText = "display:none;";
     getButtonMenu.style.cssText = "display:flex;";
     getFlexSpaceBoxStatic.style.cssText = "display:none";
+
     
 
     navbarItemSandboxMode.removeEventListener("click", listener)
@@ -680,7 +695,6 @@ if(localStorage.getItem('mode')==='lvl-mode'){
     getDinamicSpaceBox.classList.add('lvl-mode')
     lvlMode()
 }else if(localStorage.getItem('mode')==='sandbox-mode'){
-    console.log('h2');
     getDinamicSpaceBox.classList.add('sandbox-mode')
     sandBoxMode()
     
